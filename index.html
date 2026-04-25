@@ -285,6 +285,122 @@
     text-align: center;
   }
 
+  /* ── Timer ── */
+  .timer-wrap {
+    background: linear-gradient(135deg, rgba(255,111,0,0.18), rgba(229,57,53,0.18));
+    border: 1px solid rgba(255,111,0,0.45);
+    border-radius: 14px;
+    padding: 18px 28px;
+    margin-bottom: 22px;
+    text-align: center;
+  }
+  .timer-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #ff9800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+  }
+  .timer-digits {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    align-items: center;
+  }
+  .timer-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+  }
+  .timer-num {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #ffd54f;
+    line-height: 1;
+    text-shadow: 0 0 14px rgba(255,213,79,0.45);
+    min-width: 54px;
+    text-align: center;
+    background: rgba(0,0,0,0.25);
+    border-radius: 8px;
+    padding: 6px 8px;
+  }
+  .timer-unit {
+    font-size: 0.65rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .timer-colon {
+    font-size: 2rem;
+    font-weight: 900;
+    color: #ff9800;
+    margin-bottom: 14px;
+  }
+
+  /* ── Email contact ── */
+  .email-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 1rem;
+    color: #f0f0f0;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .email-row a {
+    color: #ffd54f;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(255,213,79,0.5);
+  }
+  .email-row a:hover { border-bottom-color: #ffd54f; }
+
+  /* ── Floating WhatsApp ── */
+  .floating-wa {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 999;
+    width: 62px;
+    height: 62px;
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 6px 24px rgba(37,211,102,0.55);
+    text-decoration: none;
+    animation: floatBounce 2.5s ease-in-out infinite;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  .floating-wa:hover {
+    transform: scale(1.12);
+    box-shadow: 0 10px 32px rgba(37,211,102,0.7);
+  }
+  .floating-wa-tooltip {
+    position: fixed;
+    bottom: 100px;
+    right: 22px;
+    z-index: 998;
+    background: rgba(0,0,0,0.8);
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 600;
+    padding: 6px 13px;
+    border-radius: 8px;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  @keyframes floatBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-7px); }
+  }
+
   /* ── Responsive ── */
   @media (max-width: 680px) {
     h1 { font-size: 1.75rem; }
@@ -292,6 +408,7 @@
     .glass { padding: 24px 22px; }
     .btns { grid-template-columns: 1fr; }
     .btn { font-size: 1rem; padding: 15px 18px; }
+    .floating-wa { width: 54px; height: 54px; font-size: 1.5rem; bottom: 20px; right: 20px; }
   }
 </style>
 </head>
@@ -336,20 +453,44 @@
       </div>
     </div>
 
+    <!-- Timer -->
+    <div class="timer-wrap">
+      <div class="timer-label">&#x23F0; Special Offer Expires In</div>
+      <div class="timer-digits">
+        <div class="timer-block">
+          <div class="timer-num" id="t-h">01</div>
+          <div class="timer-unit">Hours</div>
+        </div>
+        <div class="timer-colon">:</div>
+        <div class="timer-block">
+          <div class="timer-num" id="t-m">00</div>
+          <div class="timer-unit">Mins</div>
+        </div>
+        <div class="timer-colon">:</div>
+        <div class="timer-block">
+          <div class="timer-num" id="t-s">00</div>
+          <div class="timer-unit">Secs</div>
+        </div>
+      </div>
+    </div>
+
     <!-- CTA Card -->
     <div class="glass">
-      <div class="glass-title">💼 Get Access Now</div>
-      <p class="cta-label">📩 DM now to unlock high-quality opportunities</p>
+      <div class="glass-title">&#x1F4BC; Get Access Now</div>
+      <p class="cta-label">&#x1F4E9; DM now to unlock high-quality opportunities</p>
+      <div class="email-row">
+        &#x1F4E7; Email us: <a href="mailto:uaedatabase.2026@gmail.com">uaedatabase.2026@gmail.com</a>
+      </div>
       <div class="btns">
         <a class="btn btn-db"
            href="https://drive.google.com/drive/folders/1XmCeJoJJPrc63tdGK2D6JG7SpdxvDGw6"
            target="_blank" rel="noopener noreferrer">
-          📊 See Complete Database
+          &#x1F4CA; Complete Samples Database
         </a>
         <a class="btn btn-wa"
            href="https://wa.me/923361419818?text=Hi%2C%20I%20am%20interested%20in%20the%20Dubai%20Real%20Estate%20Database"
            target="_blank" rel="noopener noreferrer">
-          💬 WhatsApp Now
+          &#x1F4AC; WhatsApp Now
         </a>
       </div>
     </div>
@@ -358,6 +499,33 @@
 
   </div>
 </div>
+
+<!-- Floating WhatsApp Button -->
+<div class="floating-wa-tooltip">Chat with us!</div>
+<a class="floating-wa"
+   href="https://wa.me/923361419818?text=Hi%2C%20I%20am%20interested%20in%20the%20Dubai%20Real%20Estate%20Database"
+   target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+  &#x1F4AC;
+</a>
+
+<script>
+  // 1-hour countdown timer
+  (function() {
+    var end = Date.now() + 60 * 60 * 1000;
+    function pad(n) { return String(n).padStart(2, '0'); }
+    function tick() {
+      var diff = Math.max(0, end - Date.now());
+      var h = Math.floor(diff / 3600000);
+      var m = Math.floor((diff % 3600000) / 60000);
+      var s = Math.floor((diff % 60000) / 1000);
+      document.getElementById('t-h').textContent = pad(h);
+      document.getElementById('t-m').textContent = pad(m);
+      document.getElementById('t-s').textContent = pad(s);
+      if (diff > 0) setTimeout(tick, 1000);
+    }
+    tick();
+  })();
+</script>
 
 </body>
 </html>
